@@ -32,7 +32,10 @@ t = (a.mean() - b.mean()) / s
 # degrees of freedom
 nu_a = N_a - 1
 nu_b = N_b - 1
-df = (var_a / N_a + var_b / N_b)**2 / ((var_a**2) / (N_a**2 * nu_a) + (var_b**2) / (N_b**2 * nu_b))
+df = (
+    (var_a / N_a + var_b / N_b)**2 /
+    ((var_a**2) / (N_a**2 * nu_a) + (var_b**2) / (N_b**2 * nu_b))
+)
 
 # calculate p-value
 p = (1 - stats.t.cdf(np.abs(t), df=df)) * 2
